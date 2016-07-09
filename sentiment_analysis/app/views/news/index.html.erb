@@ -1,2 +1,10 @@
 <h1>Hello World</h1>
-<%= debug @emotions %>
+<ul>
+  <% @twitter_trends.each do |trend| %>
+    <li>
+      <p>Name: <%= trend.name %></p>
+      <p>URL: <%= trend.url %></p>
+      <p>Volume: <%= trend.tweet_volume %></p>
+    </li>
+  <% end %>
+</ul>
