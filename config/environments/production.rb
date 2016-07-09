@@ -4,6 +4,15 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # Global enable/disable all memcached usage
+  config.perform_caching = true
+  # Disable/enable fragment and page caching in ActionController
+  config.action_controller.perform_caching = true
+  # The underlying cache store to use.
+  config.cache_store = :dalli_store, 'localhost:11211'
+  # The session store is completely different from the normal data cache
+  config.session_store = :dalli_store, 'localhost:11211'
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.

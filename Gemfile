@@ -25,8 +25,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# gem for hitting indico api
 gem 'indico'
+# gem for hitting twitter api
 gem 'twitter'
+# gem for caching
+gem 'dalli'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

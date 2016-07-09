@@ -6,6 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -21,10 +22,19 @@ Rails.application.configure do
       'Cache-Control' => 'public, max-age=172800'
     }
   else
-    config.action_controller.perform_caching = false
+    config.action_controller.perform_caching = true
 
     config.cache_store = :null_store
   end
+
+  # Global enable/disable all memcached usage
+  config.perform_caching = true
+  # Disable/enable fragment and page caching in ActionController
+  config.action_controller.perform_caching = true
+  # The underlying cache store to use.
+  config.cache_store = :dalli_store, 'localhost:11211'
+  # The session store is completely different from the normal data cache
+  # config.session_store = :dalli_store, 'localhost:11211'
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

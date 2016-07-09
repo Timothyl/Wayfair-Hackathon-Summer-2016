@@ -1,0 +1,15 @@
+<h1>This is a search page</h1>
+<ul>
+  <% @twitter_search.each do |stuff| %>
+    <li>
+      <a href="<%= stuff[:url] %>" style="color: <%= stuff[:color] %>"> <%=stuff[:text]%> </a>
+      <ul>
+        <li>Anger: <%= stuff[:analysis]['anger'] %></li>
+        <li>Joy: <%= stuff[:analysis]['joy'] %></li>
+        <li>Sadness: <%= stuff[:analysis]['sadness'] %></li>
+        <li>Fear: <%= stuff[:analysis]['fear'] %></li>
+        <li>Surprise: <%= stuff[:analysis]['surprise'] %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
